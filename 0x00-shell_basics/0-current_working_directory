@@ -1,3 +1,3 @@
 #!/bin/bash
-echo ${BASH_SOURCE:-$0}
-echo $DIR_PATH
+echo bin bash
+echo pwd
