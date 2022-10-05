@@ -1,2 +1,3 @@
 #!/bin/bash
-/home/alx-system_engineering-devops/0x00-shell_basics/0-current_working_directory
+echo ${BASH_SOURCE:-$0}
+echo $DIR_PATH
