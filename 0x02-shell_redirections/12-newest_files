@@ -1,2 +1,2 @@
 #!/bin/bash
-find /tmp -type f -printf "%t - %p\n" | sort -n | tail -1
+find /tmp -type f -mtime 10 | ls -ltsha | tail -n 10
