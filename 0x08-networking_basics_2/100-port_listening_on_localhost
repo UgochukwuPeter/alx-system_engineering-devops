@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# the script creates a TCP connection on localhost port 98
+# and stay on listening status
+sudo nc -lp 98 localhost

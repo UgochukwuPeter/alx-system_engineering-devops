@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# this script using ping command to diagnosis and measurement
+# the host network status 5 times
+# Usage: 5-is_the_host_on_the_network {IP_ADDRESS}
+ARGS=1
+if [ $# -ne "$ARGS" ]
+then
+    echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
+else
+    ping -c 5 "$1"
+fi

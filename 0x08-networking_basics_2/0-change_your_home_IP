@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# the script modifies the contents of /etc/hosts
+cp /etc/hosts ~/hosts.new
+sed -i 's/^127[0-9.]*\slocalhost/127.0.0.2\tlocalhost/g' ~/hosts.new
+sed -i '$ a\8.8.8.8	facebook.com' ~/hosts.new
+sudo cp -f ~/hosts.new /etc/hosts
