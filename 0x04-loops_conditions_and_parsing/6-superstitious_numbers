@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#print 1-20, skipping "bad luck" numbers based on regions
+
+
+i="1"
+while ((i < 21)); do
+    echo $i
+    case $i in
+	4)
+	    echo "bad luck from China"
+	    ;;
+	9)
+	    echo "bad luck from Japan"
+	    ;;
+	17)
+	    echo "bad luck from Italy"
+	    ;;
+    esac
+
+    i=$((i + 1))
+done

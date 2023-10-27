@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#Print "Holberton School" 10 times w/ while loop, say Hi on 9th print
+
+i="0"
+while ((i < 10)); do
+    echo "Holberton School"
+    if [ $i == 8 ]; then
+	echo "Hi"
+    fi
+    i=$((i + 1))
+done

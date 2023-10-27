@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#Print "Holberton School" 10 times w/ while loop, say bad luck on 4th turn,
+#good luck on 7th
+
+i="0"
+while ((i < 10)); do
+    if [ $i == 3 ]; then
+	echo "bad luck"
+
+    elif [ $i == 7 ]; then
+	echo "good luck"
+    else
+        echo "Holberton School"
+    fi
+
+    i=$((i + 1))
+done

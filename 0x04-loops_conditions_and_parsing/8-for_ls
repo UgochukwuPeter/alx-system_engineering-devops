@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#display content of current directory, cutting everything before first -
+
+list="$(ls)"
+
+for i in $list; do
+    echo "$i" | cut -d '-' -f2
+
+done
