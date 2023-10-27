@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#display string indefinitely, adding 2 second breaks
+
+i="1"
+while [ $i == 1 ]; do
+    echo "To infinity and beyond"
+    sleep 2
+done

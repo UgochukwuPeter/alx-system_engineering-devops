@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#actually kill question 7
+
+pkill -9 -f ./7-highlander

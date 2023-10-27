@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#display string indefinitely, withstand SIGTERM
+
+echo $$ > /var/run/holbertonscript.pid
+
+trap 'echo "I hate the kill command" && rm /var/run/holbertonscript.pid  && exit' SIGTERM
+trap 'echo "Y U no love me?!" && rm /var/run/holbertonscript.pid && exit' SIGINT
+
+i="1"
+while [ $i == 1 ]; do
+    echo "To infinity and beyond"
+    sleep 2
+done
