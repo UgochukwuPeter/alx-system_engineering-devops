@@ -1,0 +1,28 @@
+echo -e "*** Allow Port **\n"
+sudo ufw allow 3306
+sudo ufw disable
+sudo ufw enable
+config_data=\
+"
+# The MySQL  Server configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+[mysqld]
+binlog_do_db    = tyrell_corp
+log_bin         = /var/log/mysql/mysql-bin.log
+server-id       = 1
+pid-file        = /var/run/mysqld/mysqld.pid
+socket          = /var/run/mysqld/mysqld.sock
+datadir         = /var/lib/mysql
+log-error       = /var/log/mysql/error.log
+# By default we only accept connections from localhost
+# bind-address    = 127.0.0.1
+# Disabling symbolic-links is recommended to prevent assorted security risks
+symbolic-links=0
+"
+
+echo "$config_data" | sudo dd status=none of=/etc/mysql/mysql.conf.d/mysqld.cnf
+sudo systemctl restart mysql
+echo -e "*** Done ***"
