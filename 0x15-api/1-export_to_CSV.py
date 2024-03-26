@@ -1,24 +1,23 @@
 #!/usr/bin/python3
-""" Export api to csv"""
+#  sends a request to the URL and displays the value of
+# the variable X-Request-Id in the response header
+""" script that fetches https://intranet.hbtn.io/status """
+
 import csv
 import requests
 import sys
 
-if __name__ == '__main__':
-    user = sys.argv[1]
-    url_user = 'https://jsonplaceholder.typicode.com/users/' + user
-    res = requests.get(url_user)
-    """ANYTHING"""
-    user_name = res.json().get('username')
-    task = url_user + '/todos'
-    res = requests.get(task)
-    tasks = res.json()
+if __name__ == "__main__":
+    url = 'https://jsonplaceholder.typicode.com/users/'
 
-    with open('{}.csv'.format(user), 'w') as csvfile:
-        for task in tasks:
-            completed = task.get('completed')
-            """Complete"""
-            title_task = task.get('title')
-            """Done"""
-            csvfile.write('"{}","{}","{}","{}"\n'.format(
-                user, user_name, completed, title_task))
+    reqEmployee = requests.get(url + sys.argv[1])
+    reqTodos = requests.get(url + sys.argv[1] + '/todos/')
+    jsonemp = reqEmployee.json()
+    filename = str(jsonemp.get('id')) + ".csv"
+    print(filename)
+    with open(filename, 'w') as csvfile:
+        csvwriter = csv.writer(csvfile, delimiter=",",
+                               quotechar='"', quoting=csv.QUOTE_ALL)
+        for task in reqTodos.json():
+            csvwriter.writerow([task.get('userId'), jsonemp.get('username'),
+                                task.get('completed'), task.get('title')])
